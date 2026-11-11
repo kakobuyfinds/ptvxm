@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>PonyBuy spreadsheet: productlinks, QC en maattips</title>
+  <meta name="description" content="Gebruik deze PonyBuy spreadsheet-gids voor productlinks, QC-foto’s, maten en kosten. Ontdek kledingcategorieën en vergelijk bewust via cafans.com.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#702b3b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="PonyBuy spreadsheet — eerst vergelijken, dan kiezen">
+  <meta property="og:description" content="Een onafhankelijke Nederlandstalige gids voor productlinks, QC-foto’s, pasvorm en een volledige kostenvergelijking.">
+  <meta name="twitter:card" content="summary">
+  <!--
+    Bestandsnaam: index.html.
+    Onderzoek: de Google-resultaatpagina was niet rechtstreeks toegankelijk.
+    De exacte eerste tien Google-posities zijn daarom niet bevestigd.
+    Tien unieke domeinen uit beschikbare zoekresultaten zijn thematisch bekeken:
+    spreadsheetponybuy.com, ponybuypicklist.com, qcradar.com, ponybuyfind.com,
+    ponybuy.io, ponybuytable.com, ponybuyspreadsheets.com, hipobuyyupoo.net,
+    jadeship.com en maisonlooks.com.
+    Thema’s: productlinks, categorieën, QC, maatgegevens en kostenvergelijking.
+    Geen prijzen, aantallen, beoordelingen of officiële relaties overgenomen.
+
+    Secundaire zoektermen:
+    PonyBuy productlinks; PonyBuy QC-foto’s;
+    PonyBuy maattabel; PonyBuy verzendkosten.
+
+    Longtailonderwerpen:
+    PonyBuy spreadsheet voor beginners; PonyBuy spreadsheet gebruiken;
+    PonyBuy productlinks vergelijken; PonyBuy schoenen zoeken;
+    PonyBuy hoodies vergelijken; PonyBuy T-shirts op maat kiezen;
+    PonyBuy jassen beoordelen; PonyBuy broeken meten;
+    PonyBuy hoofddeksels kiezen; PonyBuy sets vergelijken;
+    PonyBuy ondergoed selecteren; PonyBuy jerseys bekijken;
+    PonyBuy accessoires beoordelen; PonyBuy QC-foto’s lezen;
+    PonyBuy maattabel controleren; PonyBuy binnenzool meten;
+    PonyBuy borstbreedte vergelijken; PonyBuy materiaallabel controleren;
+    PonyBuy kleurvariant vastleggen; PonyBuy verkoperslink controleren;
+    PonyBuy Taobao links; PonyBuy Weidian links; PonyBuy 1688 links;
+    PonyBuy verzendkosten inschatten; PonyBuy totaalprijs berekenen;
+    PonyBuy retourvoorwaarden lezen; PonyBuy spreadsheet Nederland;
+    PonyBuy spreadsheet België.
+
+    Voeg na publicatie een canonical naar de daadwerkelijke pagina-URL toe.
+  -->
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --white: #fffdf8;
+      --ink: #292625;
+      --muted: #625c58;
+      --wine: #702b3b;
+      --line: #ded8cf;
+      --sand: #ede4d8;
+      --olive: #e8eadb;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-underline-offset: 4px; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.13; text-wrap: balance; }
+    h1 {
+      font-size: clamp(2.7rem, 6.3vw, 5.6rem);
+      letter-spacing: -.065em;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 3.6vw, 3rem);
+      letter-spacing: -.045em;
+    }
+    h3 { font-size: 1.2rem; letter-spacing: -.02em; }
+    p { margin-top: 1rem; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--wine);
+      outline-offset: 5px;
+    }
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+    .eyebrow {
+      font-size: .75rem;
+      font-weight: 750;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--wine);
+    }
+    .muted { color: var(--muted); }
+    .top { border-bottom: 1px solid var(--line); }
+    .top .wrap {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -.06em;
+      text-decoration: none;
+    }
+    .edition { font-size: .8rem; color: var(--muted); }
+    .header-link { font-size: .9rem; font-weight: 650; }
+    .categories {
+      padding: 23px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .cat-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 13px;
+      font-size: .8rem;
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .cat-grid a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 13px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: .81rem;
+      font-weight: 600;
+    }
+    .cat-grid a:hover { border-color: var(--wine); color: var(--wine); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 55px;
+      padding: 60px 0;
+    }
+    .hero h1 { margin-top: 18px; }
+    .hero h1 span { display: block; color: var(--wine); }
+    .lead {
+      font-size: 1.1rem;
+      max-width: 51ch;
+      color: var(--muted);
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 13px 20px;
+      background: var(--wine);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 650;
+      margin-top: 25px;
+    }
+    .button:hover { background: #54202d; }
+    .hero figure {
+      background: var(--sand);
+      border-radius: var(--radius);
+      overflow: hidden;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: contain;
+      aspect-ratio: 1/1;
+    }
+    .hero figcaption {
+      padding: 15px 20px;
+      background: var(--white);
+      font-size: .8rem;
+      border-top: 1px solid var(--line);
+    }
+    .note { font-size: .8rem; color: var(--muted); max-width: 60ch; }
+    .answer {
+      display: grid;
+      grid-template-columns: .65fr 1.5fr;
+      gap: 50px;
+      background: var(--olive);
+      padding: 32px;
+      border-radius: var(--radius);
+    }
+    .answer p { margin: 0; }
+    .answer h2 { font-size: 1.7rem; }
+    .section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+    .section-head p { max-width: 45ch; color: var(--muted); }
+    .section-head h2 { margin-top: 10px; }
+    .visuals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .visual-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .visual-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background: #f1f0ed;
+    }
+    .visual-copy { padding: 23px; }
+    .visual-copy .eyebrow { margin-bottom: 10px; }
+    .visual-copy p { font-size: .93rem; color: var(--muted); }
+    .visual-copy a {
+      display: inline-block;
+      margin-top: 17px;
+      font-weight: 650;
+      font-size: .87rem;
+    }
+    .caption { font-size: .78rem; color: var(--muted); margin-top: 18px; }
+    .editorial {
+      display: grid;
+      grid-template-columns: .65fr 1.5fr;
+      gap: 60px;
+    }
+    .intro-column p { color: var(--muted); }
+    .articles { display: grid; gap: 28px; }
+    .articles article + article { padding-top: 28px; border-top: 1px solid var(--line); }
+    .articles h3 { font-size: 1.5rem; }
+    .number {
+      color: var(--wine);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      font-weight: 750;
+      margin-bottom: 9px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 25px; }
+    table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    th { background: var(--sand); font-weight: 700; }
+    tbody th { width: 25%; }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 28px;
+    }
+    .check-grid article { border-top: 2px solid var(--wine); padding-top: 18px; }
+    .check-grid p { color: var(--muted); font-size: .94rem; }
+    .cost {
+      background: var(--wine);
+      color: var(--white);
+      padding: 35px;
+      border-radius: var(--radius);
+      margin-top: 30px;
+    }
+    .cost h3 { font-size: 1.5rem; }
+    .formula { font-size: 1.2rem; line-height: 1.6; max-width: 65ch; }
+    .cost p:last-child { font-size: .9rem; color: #f0dbe1; }
+    .faq {
+      display: grid;
+      grid-template-columns: .65fr 1.5fr;
+      gap: 60px;
+    }
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq details:first-child { padding-top: 0; }
+    .faq summary { cursor: pointer; font-weight: 650; padding-right: 15px; line-height: 1.5; }
+    .faq details p { color: var(--muted); font-size: .95rem; }
+    .closing {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: center;
+      padding: 48px 0;
+    }
+    .closing h2 { font-size: 2rem; }
+    .closing .button { margin: 0; flex-shrink: 0; }
+    footer { background: var(--sand); padding: 30px 0; font-size: .8rem; color: var(--muted); }
+    footer .wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+    footer p { margin: 0; }
+    footer .logo { color: var(--ink); }
+    @media (min-width: 900px) {
+      .hero figure { max-height: 480px; }
+    }
+    @media (max-width: 850px) {
+      .cat-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero { gap: 25px; padding: 40px 0; }
+      .hero h1 { font-size: 3.6rem; }
+      .editorial, .faq { grid-template-columns: 1fr; gap: 30px; }
+      .visuals { gap: 12px; }
+      .visual-copy { padding: 17px; }
+      .answer { grid-template-columns: 1fr; gap: 18px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: calc(100% - 30px); }
+      .edition { display: none; }
+      .top .wrap { min-height: 65px; }
+      .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cat-grid a { font-size: .76rem; padding: 10px; }
+      .cat-head span:last-child { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 28px; }
+      .hero h1 { font-size: 3.4rem; }
+      .hero figure { max-width: 100%; }
+      .hero img { min-height: 0; max-height: 330px; }
+      .answer { padding: 25px; }
+      .section { padding: 42px 0; }
+      .section-head { display: block; }
+      .visuals { grid-template-columns: 1fr; }
+      .visual-card { display: grid; grid-template-columns: 36% 1fr; }
+      .visual-card img { height: 100%; aspect-ratio: auto; min-height: 200px; }
+      .visual-copy h3 { font-size: 1.1rem; }
+      .visual-copy p { font-size: .85rem; }
+      .check-grid { grid-template-columns: 1fr; }
+      .cost { padding: 25px; }
+      .closing { display: block; }
+      .closing .button { margin-top: 20px; }
+      footer .wrap { grid-template-columns: 1fr; gap: 20px; }
+      th, td { padding: 12px; font-size: .85rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "PonyBuy spreadsheet: productlinks, QC en maattips",
+        "inLanguage": "nl",
+        "description": "Een onafhankelijke Nederlandstalige gids voor het vergelijken van productlinks, maten, QC-foto’s en totale kosten."
+      },
+      {
+        "@type": "Article",
+        "headline": "Van productlink naar een onderbouwde keuze",
+        "inLanguage": "nl",
+        "description": "Een praktische uitleg over productvarianten, maattabellen, QC-foto’s en kostenvergelijking.",
+        "articleSection": [
+          "Productlinks",
+          "Maten en pasvorm",
+          "QC-foto’s",
+          "Kostenvergelijking"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "nl",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wat is een PonyBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Een PonyBuy spreadsheet is een overzicht van productlinks, meestal geordend per categorie. Gebruik zo’n lijst om artikelen te ontdekken; controleer daarna de actuele verkoperspagina, variant, maat en voorwaarden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is deze pagina officieel verbonden met PonyBuy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. Dit is een onafhankelijke Nederlandstalige informatiepagina. De winkelknoppen openen cafans.com en de categorieknoppen openen de aangegeven cafans-categorieën. Deze pagina beheert geen PonyBuy-bestellingen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe controleer ik een productlink van Taobao, Weidian of 1688?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bewaar de originele verkoperslink en vergelijk productnaam, artikelnummer, kleur en maat. Controleer bij de gekozen aankoopdienst of de link daadwerkelijk wordt ondersteund voordat je betaalt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wat vertellen QC-foto’s over een artikel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "QC-foto’s kunnen zichtbare kenmerken zoals kleur, naden, maatlabel en beschadigingen helpen beoordelen. Ze bewijzen geen authenticiteit, levensduur of volledige materiaalsamenstelling."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe kies ik een maat zonder het artikel te passen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vergelijk de maattabel van de specifieke verkoper met een passend kledingstuk of een gemeten binnenzool. Controleer de meetmethode en kies niet alleen op basis van een algemene maatletter of EU-maat."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Zijn de afbeeldingen producten die ik hier kan bestellen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. De merkafbeeldingen zijn visuele referenties voor de keuzehulp. Ze bevestigen geen voorraad, authenticiteit, verkooprelatie of beschikbaarheid bij cafans.com."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe vergelijk ik kosten voor Nederland of België?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tel artikelprijs, binnenlandse verzending, eventuele servicekosten, internationale verzending en mogelijke invoer- en afhandelingskosten bij elkaar op. Controleer de actuele voorwaarden voor jouw bestemming bij de gekozen aankoopdienst en vervoerder."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ptvxm/">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="https://www.cafans.com" aria-label="Ga naar cafans.com">cafans.com</a>
+      <span class="edition">DE KEUZEGIDS · NEDERLANDSTALIGE EDITIE</span>
+      <a class="header-link" href="https://www.cafans.com">Ontdek de collectie ↗</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="categories" aria-label="Productcategorieën op cafans.com">
+      <div class="cat-head">
+        <strong>Kies je categorie</strong>
+        <span>Alle categorieën openen op cafans.com ↗</span>
+      </div>
+      <div class="cat-grid">
+        <a href="https://cafans.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a>
+        <a href="https://cafans.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Productlinks · pasvorm · details</div>
+        <h1 id="hero-title">PonyBuy spreadsheet<span>Een betere keuze begint bij de details.</span></h1>
+        <p class="lead">Een mooie foto is het begin. Vergelijk ook de juiste variant, meetgegevens en totale kosten. Deze gids helpt je productlinks te beoordelen voordat je verder winkelt.</p>
+        <a class="button" href="https://www.cafans.com">Bekijk producten op cafans.com <span aria-hidden="true">↗</span></a>
+        <p class="note">Onafhankelijke keuzehulp. Geen officiële band met PonyBuy of de afgebeelde merken. Winkelknoppen verwijzen naar cafans.com.</p>
+      </div>
+      <figure>
+        <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/918bc0dd-0a43-47f7-a0dd-b46a27d8679d/air-force-1-low-retro-camo-mens-shoes-3MLKyzIf.png" alt="Nike Air Force 1 Low Retro Camo sneaker als visuele stijlreferentie" width="600" height="600" fetchpriority="high" decoding="async">
+        <figcaption><strong>01 / Het silhouet</strong> — bekijk vorm, zoolrand en verhoudingen. Afbeelding ter illustratie, geen productaanbod.</figcaption>
+      </figure>
+    </section>
+
+    <section class="answer" aria-labelledby="quick-answer">
+      <h2 id="quick-answer">Wat is een PonyBuy spreadsheet?</h2>
+      <p>Een <strong>PonyBuy spreadsheet</strong> is een overzicht van productlinks, meestal geordend per categorie. Gebruik zo’n lijst om artikelen te ontdekken; controleer daarna de actuele verkoperspagina, variant, maat en voorwaarden. Deze pagina biedt een leesbare keuzehulp en categorie-ingangen naar cafans.com, geen downloadbare spreadsheet of eigen bestelomgeving.</p>
+    </section>
+
+    <section class="section" aria-labelledby="details-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Kijken met een doel</div>
+          <h2 id="details-title">Drie beelden. Drie controlepunten.</h2>
+        </div>
+        <p>Gebruik merkbeelden als stijlreferentie. Beoordeel een concrete aankoop altijd aan de hand van de foto’s en gegevens van die specifieke aanbieding.</p>
+      </div>
+
+      <div class="visuals">
+        <article class="visual-card">
+          <img src="https://static.nike.com/a/images/t_PDP_864_v1,f_auto,q_auto:eco/2088d61a-1c48-4568-9cf9-08627f094c21/tech-boreas-mens-therma-fit-full-zip-hoodie-Mo2tFGrl.png" alt="Nike Tech Boreas hoodie met volledige ritssluiting" width="420" height="420" loading="lazy" decoding="async">
+          <div class="visual-copy">
+            <div class="eyebrow">Kleding / Nike</div>
+            <h3>Meet de pasvorm, niet het logo.</h3>
+            <p>Vergelijk borstbreedte, ruglengte en mouwlengte. Kijk bij een hoodie ook naar de schoudernaad en ruimte voor een extra laag.</p>
+            <a href="https://www.cafans.com">Bekijk kleding op cafans.com ↗</a>
+          </div>
+        </article>
+
+        <article class="visual-card">
+          <img src="https://media.gucci.com/style/White_South_0_160_316x316/1645725665/696856_4HAOB_4068_001_100_0000_Light-Original-GG-canvas-flat-cap.jpg" alt="Gucci Original GG canvas flat cap met monogrampatroon" width="316" height="316" loading="lazy" decoding="async">
+          <div class="visual-copy">
+            <div class="eyebrow">Hoofddeksels / Gucci</div>
+            <h3>Een maat is meer dan omtrek.</h3>
+            <p>Controleer bij een pet of hoed de hoofdomtrek, kroondiepte en sluiting. Patroonverdeling op de foto vervangt geen maatgegevens.</p>
+            <a href="https://www.cafans.com">Bekijk stijlen op cafans.com ↗</a>
+          </div>
+        </article>
+
+        <article class="visual-card">
+          <img src="https://assets.christiandior.com/is/image/diorprod/M0565ONGEM900_E01-1?wid=480&amp;qlt=75" alt="Zwarte Lady Dior tas met handvatten en decoratieve letterhangers" width="480" height="480" loading="lazy" decoding="async">
+          <div class="visual-copy">
+            <div class="eyebrow">Accessoires / Dior</div>
+            <h3>Let op gebruik en afwerking.</h3>
+            <p>Vergelijk afmetingen, draagwijze en sluitingen. Bekijk bij tassen de handvatten; vraag bij sieraden naar afmetingen, materiaal en sluiting.</p>
+            <a href="https://www.cafans.com">Bekijk accessoires op cafans.com ↗</a>
+          </div>
+        </article>
+      </div>
+      <p class="caption">Externe merkafbeeldingen dienen uitsluitend als visuele referentie. Er wordt geen beschikbaarheid, authenticiteit of samenwerking met deze merken of cafans.com bevestigd.</p>
+    </section>
+
+    <section class="section editorial" aria-labelledby="guide-title">
+      <div class="intro-column">
+        <div class="eyebrow">Praktische artikelen</div>
+        <h2 id="guide-title">Van productlink naar een onderbouwde keuze.</h2>
+        <p>Gebruik deze PonyBuy spreadsheet voor beginners als een vaste volgorde: bron controleren, maat vergelijken en pas daarna kosten afwegen.</p>
+      </div>
+      <div class="articles">
+        <article>
+          <div class="number">01 / DE BRON</div>
+          <h3>PonyBuy productlinks vergelijken</h3>
+          <p>Bewaar de originele verkoperslink en noteer de productnaam, het artikelnummer en de geselecteerde kleurvariant. Twee vergelijkbare foto’s kunnen bij verschillende uitvoeringen horen. Een overzichtskaart is daarom geen bevestiging dat jouw maat nog beschikbaar is.</p>
+          <p>Bij <strong>Taobao-, Weidian- en 1688-links</strong> controleer je eerst of de gekozen aankoopdienst de specifieke link kan verwerken. Ondersteuning kan per dienst en aanbieding verschillen. Bewaar ook een schermafbeelding van de gekozen opties en lees de retourvoorwaarden voordat je betaalt.</p>
+        </article>
+        <article>
+          <div class="number">02 / DE PASVORM</div>
+          <h3>Een PonyBuy maattabel zinvol gebruiken</h3>
+          <p>Meet een kledingstuk dat goed zit en vergelijk dezelfde meetpunten met de tabel van de verkoper. Voor T-shirts telt de borstbreedte; bij jassen is ook ruimte voor onderlagen relevant. Bij broeken controleer je taille, heupbreedte, binnenbeenlengte en of de stof rekbaar is.</p>
+          <p>Voor schoenen vergelijk je de aangegeven voet- of binnenzoollengte met de gebruikte meetmethode. Een buitenzoolmaat is iets anders dan een binnenzoolmaat. Vraag bij onduidelijke gegevens om een meetfoto, in plaats van automatisch dezelfde EU-maat te kiezen.</p>
+        </article>
+        <article>
+          <div class="number">03 / HET BEWIJS</div>
+          <h3>PonyBuy QC-foto’s lezen zonder aannames</h3>
+          <p>Begin met de volledige voor- en achterkant. Bekijk daarna naden, sluitingen, maatlabel en zichtbare beschadigingen. Leg de beelden naast de bestelde variant: kleur, bedrukking en artikelcode moeten bij dezelfde uitvoering horen.</p>
+          <p>Verschillen in licht kunnen kleuren beïnvloeden. Vraag bij twijfel om een extra opname of een meetlint in beeld. QC-foto’s helpen zichtbare details beoordelen, maar vormen geen bewijs van authenticiteit, slijtvastheid of volledige materiaalsamenstelling.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="category-guide">
+      <div class="eyebrow">Een gerichte vergelijking</div>
+      <h2 id="category-guide">Wat controleer je per categorie?</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="caption">Gebruik steeds de gegevens van de specifieke aanbieding en variant.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Categorie</th>
+              <th scope="col">Vergelijk eerst</th>
+              <th scope="col">Vraag bij twijfel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Schoenen</th>
+              <td>Voetlengte, leest en maatsysteem.</td>
+              <td>Een meetfoto van de binnenzool en een zichtbare maatcode.</td>
+            </tr>
+            <tr>
+              <th scope="row">Hoodies en T-shirts</th>
+              <td>Borstbreedte, lengte en gewenste pasvorm.</td>
+              <td>Of plat gemeten breedtes of lichaamsomtrekken worden vermeld.</td>
+            </tr>
+            <tr>
+              <th scope="row">Jassen en broeken</th>
+              <td>Schouders, mouwen, taille en binnenbeenlengte.</td>
+              <td>Details van voering, ritsen en verstelbare onderdelen.</td>
+            </tr>
+            <tr>
+              <th scope="row">Hoofddeksels en sets</th>
+              <td>Hoofdomtrek; aparte maten voor boven- en onderstuk.</td>
+              <td>Of een set één gezamenlijke maat heeft of losse maten toestaat.</td>
+            </tr>
+            <tr>
+              <th scope="row">Ondergoed en jerseys</th>
+              <td>Maattabel, stofomschrijving en opdruk.</td>
+              <td>Retourvoorwaarden voor ondergoed en details van personalisatie.</td>
+            </tr>
+            <tr>
+              <th scope="row">Accessoires en sieraden</th>
+              <td>Afmetingen, sluiting en materiaalomschrijving.</td>
+              <td>Close-ups van bevestigingspunten en informatie over huidcontact.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cost-title">
+      <div class="eyebrow">Voor Nederland en België</div>
+      <h2 id="cost-title">PonyBuy verzendkosten: vergelijk het volledige plaatje.</h2>
+      <p>Een artikelprijs is slechts één onderdeel van je budget. Voor een PonyBuy spreadsheet in Nederland of België is vooral de uiteindelijke levering op jouw adres relevant. Deze pagina geeft geen actuele tarief-, belasting- of levertijdgarantie.</p>
+      <div class="check-grid">
+        <article>
+          <h3>Gewicht én afmetingen</h3>
+          <p>Vraag naar de verpakte maat en het gewicht. Controleer of de gekozen vervoerder werkelijk gewicht, volumetrisch gewicht of een andere tariefregel gebruikt. Een ruime doos kan de vergelijking veranderen.</p>
+        </article>
+        <article>
+          <h3>Valuta en voorwaarden</h3>
+          <p>Gebruik dezelfde valuta bij het vergelijken van artikelprijzen en let op de toegepaste wisselkoers. Controleer vóór betaling de actuele servicekosten, retourprocedure en beschikbare verzendopties.</p>
+        </article>
+      </div>
+      <aside class="cost" aria-label="Opbouw van de totaalprijs">
+        <h3>Een bruikbare budgetregel</h3>
+        <p class="formula">Artikelprijs + binnenlandse verzending + eventuele servicekosten + internationale verzending + mogelijke invoer- en afhandelingskosten.</p>
+        <p>Controleer welke posten al in een offerte zitten om dubbeltelling te voorkomen. Bewaar de offerte en de gekozen voorwaarden bij je productlink.</p>
+      </aside>
+    </section>
+
+    <section class="section faq" aria-labelledby="faq-title">
+      <div>
+        <div class="eyebrow">Direct antwoord</div>
+        <h2 id="faq-title">Veelgestelde vragen</h2>
+        <p class="muted">Kort antwoord op de vragen die je keuze kunnen veranderen.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Wat is een PonyBuy spreadsheet?</summary>
+          <p>Een PonyBuy spreadsheet is een overzicht van productlinks, meestal geordend per categorie. Gebruik zo’n lijst om artikelen te ontdekken; controleer daarna de actuele verkoperspagina, variant, maat en voorwaarden.</p>
+        </details>
+        <details>
+          <summary>Is deze pagina officieel verbonden met PonyBuy?</summary>
+          <p>Nee. Dit is een onafhankelijke Nederlandstalige informatiepagina. De winkelknoppen openen cafans.com en de categorieknoppen openen de aangegeven cafans-categorieën. Deze pagina beheert geen PonyBuy-bestellingen.</p>
+        </details>
+        <details>
+          <summary>Hoe controleer ik een productlink van Taobao, Weidian of 1688?</summary>
+          <p>Bewaar de originele verkoperslink en vergelijk productnaam, artikelnummer, kleur en maat. Controleer bij de gekozen aankoopdienst of de link daadwerkelijk wordt ondersteund voordat je betaalt.</p>
+        </details>
+        <details>
+          <summary>Wat vertellen QC-foto’s over een artikel?</summary>
+          <p>QC-foto’s kunnen zichtbare kenmerken zoals kleur, naden, maatlabel en beschadigingen helpen beoordelen. Ze bewijzen geen authenticiteit, levensduur of volledige materiaalsamenstelling.</p>
+        </details>
+        <details>
+          <summary>Hoe kies ik een maat zonder het artikel te passen?</summary>
+          <p>Vergelijk de maattabel van de specifieke verkoper met een passend kledingstuk of een gemeten binnenzool. Controleer de meetmethode en kies niet alleen op basis van een algemene maatletter of EU-maat.</p>
+        </details>
+        <details>
+          <summary>Zijn de afbeeldingen producten die ik hier kan bestellen?</summary>
+          <p>Nee. De merkafbeeldingen zijn visuele referenties voor de keuzehulp. Ze bevestigen geen voorraad, authenticiteit, verkooprelatie of beschikbaarheid bij cafans.com.</p>
+        </details>
+        <details>
+          <summary>Hoe vergelijk ik kosten voor Nederland of België?</summary>
+          <p>Tel artikelprijs, binnenlandse verzending, eventuele servicekosten, internationale verzending en mogelijke invoer- en afhandelingskosten bij elkaar op. Controleer de actuele voorwaarden voor jouw bestemming bij de gekozen aankoopdienst en vervoerder.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing" aria-label="Verder winkelen">
+      <div>
+        <h2>Van inspiratie naar vergelijken.</h2>
+        <p class="muted">Bewaar de link. Controleer de maat. Lees de voorwaarden.</p>
+      </div>
+      <a class="button" href="https://www.cafans.com">Verder naar cafans.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <a class="logo" href="https://www.cafans.com">cafans.com</a>
+        <p>Onafhankelijke Nederlandstalige keuzehulp.</p>
+      </div>
+      <p>PonyBuy en de genoemde merken behoren toe aan hun respectieve eigenaren. Deze pagina verwerkt geen bestellingen en doet geen toezeggingen over prijzen, voorraad, authenticiteit of levering. Controleer actuele productinformatie op de bestemmingspagina.</p>
+    </div>
+  </footer>
+</body>
+</html>
